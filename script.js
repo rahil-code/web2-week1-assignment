@@ -2,7 +2,7 @@
 
 // sample data - expanded Star Wars characters with varied ages
 const characters = [
-  { id: 1, name: "Luke Skywalker" age: 23 },
+  { id: 1, name: "Luke Skywalker", age: 23 },
   { id: 2, name: "Darth Vader", age: 45 },
   { id: 3, name: "Princess Leia", age: 23 },
   { id: 4, name: "Obi-Wan Kenobi", age: 57 },
@@ -15,15 +15,133 @@ const characters = [
 ];
 
 // broken test data for exercise 6
+const brokenCharacters = [
+  { id: 101, age: 20 }, // missing name
+  { id: 102, name: "Ahsoka Tano", age: 17 }, // valid
+  { id: 103, name: "", age: 99 }, // invalid name (empty)
+  { id: 104, age: 35 }, // missing name
+];
 
-// 1. Iterate through the characters array and output each character's name to the console using console.log(). Then, dynamically create <li> elements for each character name and append them to the HTML unordered list element with the id "names-list".
+function clearElement(el) {
+  if (el) el.innerHTML = "";
+}
 
-// 2. Filter the characters array to find only those characters whose age property is less than 40. Log each filtered character's name to the console. Then, dynamically create <li> elements for each filtered character and append them to the HTML unordered list element with the id "young-characters-list".
+function createListItem(text) {
+  const li = document.createElement("li");
+  li.textContent = text;
+  return li;
+}
 
-// 3. Build a reusable function that accepts an array of character objects as a parameter. Inside the function, iterate through the array and extract each character's name property. Dynamically generate <li> elements for each name and append them to a target HTML list element. Call this function with the characters array and render the results in the unordered list with id "function-list".
+function showError(errorDiv, message) {
+  if (!errorDiv) return;
+  const div = document.createElement("div");
+  div.classList.add("error-message");
+  div.textContent = message;
+  errorDiv.appendChild(div);
+}
 
-// 4. Write a function that accepts two parameters: an array of character objects and a numeric age threshold. Inside the function, filter the array to include only characters whose age is below the threshold value. For each filtered character, create an <li> element with their name and append it to the target list. Call this function and render the results in the unordered list with id "age-filter-list".
+function isValidName(item) {
+  return (
+    item &&
+    Object.prototype.hasOwnProperty.call(item, "name") &&
+    typeof item.name === "string" &&
+    item.name.trim().length > 0
+  );
+}
 
-// 5. Enhance your rendering functions from exercises 3 and 4 with error handling logic. Before accessing the name property of each character object, check whether the "name" property exists. If a character object is missing the name property, use console.error() to log a descriptive error message to the console, and dynamically create and display the error message in the HTML div element with id "error-messages".
+// Exercise 3 + 5: reusable render function with optional error display
+function renderCharacterNames(array, listId, errorDivId = null) {
+  const listEl = document.getElementById(listId);
+  const errorDiv = errorDivId ? document.getElementById(errorDivId) : null;
 
-// 6. Create a second array called "brokenCharacters" that intentionally contains objects with missing name properties (e.g., objects with only id and age). Pass this broken array to your error-handling functions from exercise 5. Verify that your error handling correctly identifies the missing name properties, logs appropriate error messages to the console, and displays those error messages in the HTML div element with id "broken-array-errors".
+  if (!listEl) {
+    console.error(`Could not find list element with id "${listId}".`);
+    return;
+  }
+
+  clearElement(listEl);
+  if (errorDiv) clearElement(errorDiv);
+
+  let count = 0;
+
+  for (const item of array) {
+    if (!isValidName(item)) {
+      const msg = `Error: item with id ${
+        item?.id ?? "(unknown)"
+      } is missing a valid "name".`;
+      console.error(msg, item);
+      if (errorDiv) showError(errorDiv, msg);
+      continue;
+    }
+
+    listEl.appendChild(createListItem(item.name));
+    count++;
+  }
+
+  if (count === 0) {
+    const empty = document.createElement("li");
+    empty.classList.add("empty-list");
+    empty.textContent = "No results to display.";
+    listEl.appendChild(empty);
+  }
+}
+
+// Exercise 4 + 5: age filter function
+function renderBelowAge(array, threshold, listId, errorDivId = null) {
+  const filtered = array.filter(
+    (item) => typeof item.age === "number" && item.age < threshold
+  );
+  renderCharacterNames(filtered, listId, errorDivId);
+}
+
+// Exercise 1
+function runExercise1() {
+  console.log("Exercise 1: Print Character Names");
+  characters.forEach((c) => console.log(c.name));
+  renderCharacterNames(characters, "names-list");
+}
+
+// Exercise 2
+function runExercise2() {
+  console.log("Exercise 2: Filter by Age (< 40)");
+  const young = characters.filter((c) => c.age < 40);
+  young.forEach((c) => console.log(c.name));
+  renderCharacterNames(young, "young-characters-list");
+}
+
+// Exercise 3
+function runExercise3() {
+  console.log("Exercise 3: Reusable Function for Lists");
+  renderCharacterNames(characters, "function-list");
+}
+
+// Exercise 4
+function runExercise4() {
+  console.log("Exercise 4: Age Filter Function");
+  renderBelowAge(characters, 40, "age-filter-list");
+}
+
+// Exercise 5
+function runExercise5() {
+  console.log("Exercise 5: Error Handling");
+  renderCharacterNames(characters, "error-handling-list", "error-messages");
+}
+
+// Exercise 6
+function runExercise6() {
+  console.log("Exercise 6: Test Error Handling (brokenCharacters)");
+  renderCharacterNames(
+    brokenCharacters,
+    "broken-array-list",
+    "broken-array-errors"
+  );
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  runExercise1();
+  runExercise2();
+  runExercise3();
+  runExercise4();
+  runExercise5();
+  runExercise6();
+});
