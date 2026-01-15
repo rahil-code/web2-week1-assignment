@@ -9,9 +9,9 @@
   </head>
 
   <body>
-    <header>
-      <nav>
-        <ul>
+    <header class="site-header">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="#">Page 1</a></li>
           <li><a href="#">Page 2</a></li>
@@ -26,8 +26,8 @@
       </p>
     </header>
 
-    <main>
-      <section id="exercise-1">
+    <main class="container">
+      <section id="exercise-1" class="card">
         <h2>Exercise 1: Print Character Names</h2>
         <p>Print out the names of each character in the console.</p>
         <div class="output">
@@ -36,7 +36,7 @@
         </div>
       </section>
 
-      <section id="exercise-2">
+      <section id="exercise-2" class="card">
         <h2>Exercise 2: Filter by Age</h2>
         <p>Print out the names of characters whose age is less than 40.</p>
         <div class="output">
@@ -45,7 +45,7 @@
         </div>
       </section>
 
-      <section id="exercise-3">
+      <section id="exercise-3" class="card">
         <h2>Exercise 3: Reusable Function for Lists</h2>
         <p>
           Create a function that takes any array and renders a list of character
@@ -57,7 +57,7 @@
         </div>
       </section>
 
-      <section id="exercise-4">
+      <section id="exercise-4" class="card">
         <h2>Exercise 4: Age Filter Function</h2>
         <p>
           Create a function that takes an array and an age threshold, then
@@ -69,7 +69,7 @@
         </div>
       </section>
 
-      <section id="exercise-5">
+      <section id="exercise-5" class="card">
         <h2>Exercise 5: Error Handling</h2>
         <p>Add error handling to check if objects have a "name" property.</p>
         <div class="output">
@@ -79,7 +79,7 @@
         </div>
       </section>
 
-      <section id="exercise-6">
+      <section id="exercise-6" class="card">
         <h2>Exercise 6: Test Error Handling</h2>
         <p>Test your error handling by using a broken array.</p>
         <div class="output">
@@ -89,13 +89,13 @@
         </div>
       </section>
 
-      <section>
+      <section class="card">
         <h2>Article Collection</h2>
 
-        <article>
-          <header>
+        <article class="article">
+          <header class="article-header">
             <h3>Article Title</h3>
-            <p>By Author Name</p>
+            <p class="muted">By Author Name</p>
           </header>
 
           <p>
@@ -104,14 +104,12 @@
             et! Esse, maxime ab deleniti nemo voluptates.
           </p>
 
-          <footer>
-            <p>Final info about the article</p>
-          </footer>
+          <footer class="muted">Final info about the article</footer>
         </article>
       </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
       <p>&copy; 2025 SAIT</p>
     </footer>
   </body>
