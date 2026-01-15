@@ -7,140 +7,115 @@
     <link rel="stylesheet" href="main.css" />
     <script src="script.js" defer></script>
   </head>
-  <div>
-    <div>
-      <nav>
-        <div><a href="index.html">Home</a></div>
-        <!-- Create a list with placeholder links for 3 other pages -->
+
+  <body>
+    <header class="site-header">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <ul class="nav-links">
+          <li><a href="#">Page 1</a></li>
+          <li><a href="#">Page 2</a></li>
+          <li><a href="#">Page 3</a></li>
+        </ul>
       </nav>
-    </div>
-    <div>
-      <div>
-        <h1>SAIT Software Developer Program Web 2 Assignment 1</h1>
-        <p>
-          Complete the JavaScript exercises below. Check the console for output
-          and fill in the results on this page.
-        </p>
-      </div>
-      <div id="exercise-1">
-        <h1>Exercise 1: Print Character Names</h1>
+
+      <h1>SAIT Software Developer Program Web 2 Assignment 1</h1>
+      <p>
+        Complete the JavaScript exercises below. Check the console for output
+        and fill in the results on this page.
+      </p>
+    </header>
+
+    <main class="container">
+      <section id="exercise-1" class="card">
+        <h2>Exercise 1: Print Character Names</h2>
         <p>Print out the names of each character in the console.</p>
         <div class="output">
-          <h1>Results:</h1>
-          <ul id="names-list">
-            <!-- Character names will be populated here -->
-          </ul>
+          <h3>Results:</h3>
+          <ul id="names-list"></ul>
         </div>
-      </div>
+      </section>
 
-      <div id="exercise-2">
-        <h1>Exercise 2: Filter by Age</h1>
+      <section id="exercise-2" class="card">
+        <h2>Exercise 2: Filter by Age</h2>
         <p>Print out the names of characters whose age is less than 40.</p>
         <div class="output">
-          <h1>Results:</h1>
-          <ul id="young-characters-list">
-            <!-- Filtered character names will be populated here -->
-          </ul>
+          <h3>Results:</h3>
+          <ul id="young-characters-list"></ul>
         </div>
-      </div>
+      </section>
 
-      <div id="exercise-3">
-        <h1>Exercise 3: Reusable Function for Lists</h1>
+      <section id="exercise-3" class="card">
+        <h2>Exercise 3: Reusable Function for Lists</h2>
         <p>
           Create a function that takes any array and renders a list of character
           names on the page.
         </p>
         <div class="output">
-          <h1>Results:</h1>
-          <ul id="function-list">
-            <!-- Function-generated list will be populated here -->
-          </ul>
+          <h3>Results:</h3>
+          <ul id="function-list"></ul>
         </div>
-      </div>
+      </section>
 
-      <div id="exercise-4">
-        <h1>Exercise 4: Age Filter Function</h1>
+      <section id="exercise-4" class="card">
+        <h2>Exercise 4: Age Filter Function</h2>
         <p>
           Create a function that takes an array and an age threshold, then
           displays characters below that age.
         </p>
         <div class="output">
-          <h1>Results:</h1>
-          <ul id="age-filter-list">
-            <!-- Age-filtered results will be populated here -->
-          </ul>
+          <h3>Results:</h3>
+          <ul id="age-filter-list"></ul>
         </div>
-      </div>
+      </section>
 
-      <div id="exercise-5">
-        <h1>Exercise 5: Error Handling</h1>
+      <section id="exercise-5" class="card">
+        <h2>Exercise 5: Error Handling</h2>
         <p>Add error handling to check if objects have a "name" property.</p>
         <div class="output">
-          <h1>Results:</h1>
-          <ul id="error-handling-list">
-            <!-- Error-handled results will be populated here -->
-          </ul>
-          <div id="error-messages">
-            <!-- Error messages will be displayed here -->
-          </div>
+          <h3>Results:</h3>
+          <ul id="error-handling-list"></ul>
+          <div id="error-messages"></div>
         </div>
-      </div>
+      </section>
 
-      <div id="exercise-6">
-        <h1>Exercise 6: Test Error Handling</h1>
+      <section id="exercise-6" class="card">
+        <h2>Exercise 6: Test Error Handling</h2>
         <p>Test your error handling by using a broken array.</p>
         <div class="output">
-          <h1>Results:</h1>
-          <ul id="broken-array-list">
-            <!-- Broken array test results will be populated here -->
-          </ul>
-          <div id="broken-array-errors">
-            <!-- Error messages from broken array will be displayed here -->
-          </div>
+          <h3>Results:</h3>
+          <ul id="broken-array-list"></ul>
+          <div id="broken-array-errors"></div>
         </div>
-      </div>
-      <div>
-        <div>
-          <h1>Article Collection</h1>
-        </div>
-        <!-- responsible for layout of articles -->
-        <div>
-          <!-- specific article -->
-          <div>
-            <div>
-              <h1>Article Title</h1>
-              <p></p>
-              <img src="" alt="" />
-              <div>
-                <!-- Author information -->
-              </div>
-            </div>
-            <div>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-                quibusdam, iure neque quisquam esse itaque natus fuga provident
-                ad et! Esse, maxime ab deleniti nemo voluptates, incidunt
-                assumenda nesciunt odio delectus, ipsum rem dolores ducimus
-                laudantium quas magnam ad cupiditate tempore quis? Provident
-                fuga nobis delectus nemo. Consectetur exercitationem sequi
-                pariatur rerum soluta mollitia dolor nam officia cupiditate
-                iusto animi qui a voluptate eligendi aut perspiciatis quam
-                numquam perferendis repellendus dolore, ratione aliquam? Cumque
-                minima blanditiis maiores, quia ea sunt quam consectetur sit
-                illo iusto eligendi modi fugiat. Quisquam laborum culpa odit
-                dignissimos dolor repudiandae facilis sapiente quasi debitis
-                quas!
-              </p>
-            </div>
-            <div>
-              <p>final info about the article</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div>
+      </section>
+
+      <section class="card">
+        <h2>Article Collection</h2>
+
+        <article class="article">
+          <header class="article-header">
+            <h3>Article Title</h3>
+            <p class="muted">Short description goes here.</p>
+            <img src="" alt="" />
+            <p class="muted">Author information</p>
+          </header>
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+            quibusdam, iure neque quisquam esse itaque natus fuga provident ad
+            et! Esse, maxime ab deleniti nemo voluptates, incidunt assumenda
+            nesciunt odio delectus, ipsum rem dolores ducimus laudantium quas
+            magnam ad cupiditate tempore quis? Provident fuga nobis delectus
+            nemo.
+          </p>
+
+          <footer class="muted">Final info about the article</footer>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
       <p>&copy; 2025 SAIT</p>
-    </div>
-  </div>
+    </footer>
+  </body>
 </html>
